@@ -2,4 +2,4 @@
 
 ## Project Overview
 
-The project overview is available on the wiki [here](https://github.com/cu-ecen-aeld/final-project-bennowotny/wiki/Final-Project-Overview).
+The project wiki is available [here](https://github.com/cu-ecen-aeld/final-project-bennowotny/wiki).  Follow the link on the wiki to the project overview.
