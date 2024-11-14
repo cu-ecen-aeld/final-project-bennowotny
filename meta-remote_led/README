@@ -1,0 +1,2 @@
+The layer containing needed drivers/applications to run the project.
+To build this layer, run 'bitbake-layers add-layer meta-remote_led'
