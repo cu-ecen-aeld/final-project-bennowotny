@@ -21,5 +21,5 @@ S = "${WORKDIR}/remote-led"
 inherit cmake
 
 # Specify any options you want to pass to cmake using EXTRA_OECMAKE:
-EXTRA_OECMAKE = "--trace"
+EXTRA_OECMAKE = ""
 OECMAKE_GENERATOR = "Ninja"
