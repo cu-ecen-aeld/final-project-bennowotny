@@ -13,4 +13,4 @@ bitbake-layers add-layer "$script_dir/meta-remote_led"
 bitbake-layers layerindex-fetch meta-oe
 bitbake-layers layerindex-fetch openembedded-core
 bitbake-layers layerindex-fetch meta-raspberrypi
-MACHINE="$machine" DISTRO="$distro" ARCH="$architecture" REMOTE_LED_IMAGE_TYPES="rpi-sdimg" bitbake "$image"
+MACHINE="$machine" DISTRO="$distro" ARCH="$architecture" bitbake "$image"
