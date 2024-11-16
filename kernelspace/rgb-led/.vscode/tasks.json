@@ -1,0 +1,66 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "devtool build rgb-led: raspberrypi3_64",
+            "type": "shell",
+            "command": "bash",
+            "linux": {
+                "options": {
+                    "cwd": "/workspaces/final-project-bennowotny/poky"
+                }
+            },
+            "args": [
+                "--login",
+                "-c",
+                ". /workspaces/final-project-bennowotny/poky/oe-init-build-env /workspaces/final-project-bennowotny/build > /dev/null && devtool build rgb-led"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "devtool deploy-target rgb-led: raspberrypi3_64",
+            "type": "shell",
+            "command": "bash",
+            "linux": {
+                "options": {
+                    "cwd": "/workspaces/final-project-bennowotny/poky"
+                }
+            },
+            "args": [
+                "--login",
+                "-c",
+                ". /workspaces/final-project-bennowotny/poky/oe-init-build-env /workspaces/final-project-bennowotny/build > /dev/null && devtool deploy-target rgb-led root@192.168.7.2 -c"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "devtool build & deploy-target rgb-led: raspberrypi3_64",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "devtool build rgb-led: raspberrypi3_64",
+                "devtool deploy-target rgb-led: raspberrypi3_64"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "devtool build rgb-led: raspberrypi3_64 --clean",
+            "type": "shell",
+            "command": "bash",
+            "linux": {
+                "options": {
+                    "cwd": "/workspaces/final-project-bennowotny/poky"
+                }
+            },
+            "args": [
+                "--login",
+                "-c",
+                ". /workspaces/final-project-bennowotny/poky/oe-init-build-env /workspaces/final-project-bennowotny/build > /dev/null && devtool build rgb-led --clean"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}

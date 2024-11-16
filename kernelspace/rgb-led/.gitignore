@@ -1,0 +1,17 @@
+*.order
+*.symvers
+*.ko
+.*.cmd
+.tmp_versions*
+*.mod.c
+linux_source_cdt
+*.mod
+build
+.cache
+.*.cmd
+*.mod.*
+*.o
+compile_commands.json
+
+oe-logs
+oe-workdir

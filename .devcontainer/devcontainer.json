@@ -30,7 +30,8 @@
 				"ms-vscode.cmake-tools",
 				"josetr.cmake-language-support-vscode",
 				"yocto-project.yocto-bitbake",
-				"ms-python.vscode-pylance"
+				"ms-python.vscode-pylance",
+				"mads-hartmann.bash-ide-vscode"
 			]
 		}
 	},
