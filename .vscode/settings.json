@@ -30,10 +30,10 @@
       "**/cache/**": true,
       "**/downloads/**": true,
       "**/node_modules/**": true,
-      "**/oe-logs/**": true,
+      // "**/oe-logs/**": true,
       "**/oe-workdir/**": true,
       "**/sstate-cache/**": true,
-      "**/tmp*/**": true,
+      // "**/tmp*/**": true,
       "**/workspace/attic/**": true,
       "**/workspace/sources/**": true
   },
