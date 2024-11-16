@@ -11,6 +11,7 @@ build
 .*.cmd
 *.mod.*
 *.o
+compile_commands.json
 
 oe-logs
 oe-workdir
