@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "1234_usr-bin-remote-led",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/workspaces/final-project-bennowotny/build/tmp-glibc/work/cortexa53-oe-linux/remote-led/1.0/image/usr/bin/remote-led",
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "preLaunchTask": "1234_usr-bin-remote-led",
+            "miDebuggerPath": "/workspaces/final-project-bennowotny/build/tmp-glibc/work/x86_64-linux/gdb-cross-aarch64/14.2/recipe-sysroot-native/usr/bin/aarch64-oe-linux/aarch64-oe-linux-gdb",
+            "miDebuggerServerAddress": "192.168.7.2:1234",
+            "sourceFileMap": {
+                "/usr/include": "/workspaces/final-project-bennowotny/build/tmp-glibc/work/cortexa53-oe-linux/remote-led/1.0/recipe-sysroot/usr/include"
+            },
+            "setupCommands": [
+                {
+                    "description": "sysroot",
+                    "text": "set sysroot /workspaces/final-project-bennowotny/build/tmp-glibc/work/cortexa53-oe-linux/remote-led/1.0/image"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "files.watcherExclude": {
+        "**/.git/**": true,
+        "**/oe-logs/**": true,
+        "**/oe-workdir/**": true,
+        "**/source-date-epoch/**": true
+    },
+    "files.exclude": {
+        "**/.git/**": true,
+        "**/oe-logs/**": true,
+        "**/oe-workdir/**": true,
+        "**/source-date-epoch/**": true
+    },
+    "files.readonlyInclude": {
+        "/workspaces/final-project-bennowotny/build/tmp-glibc/work/cortexa53-oe-linux/remote-led/1.0/recipe-sysroot/**": true,
+        "/workspaces/final-project-bennowotny/build/tmp-glibc/work/cortexa53-oe-linux/remote-led/1.0/recipe-sysroot-native/**": true
+    },
+    "python.analysis.exclude": [
+        "**/.git/**",
+        "**/oe-logs/**",
+        "**/oe-workdir/**",
+        "**/source-date-epoch/**"
+    ],
+    "cmake.configureOnOpen": true,
+    "cmake.sourceDirectory": "/workspaces/final-project-bennowotny/userspace/remote-led",
+    "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json",
+    "clangd.arguments": [
+        "--query-driver=/workspaces/final-project-bennowotny/build/tmp/work/core2-64-poky-linux/remote-led/1.0/recipe-sysroot-native/usr/bin/x86_64-poky-linux/x86_64-poky-linux-g++,/workspaces/final-project-bennowotny/build/tmp/work/core2-64-poky-linux/remote-led/1.0/recipe-sysroot-native/usr/bin/x86_64-poky-linux/x86_64-poky-linux-gcc,/usr/bin/gcc,/usr/bin/g++"
+    ],
+    "cmake.configureOnEdit": true,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+}
