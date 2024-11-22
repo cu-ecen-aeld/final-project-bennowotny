@@ -29,5 +29,6 @@
     ],
     "cmake.configureOnEdit": true,
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+    "git.openRepositoryInParentFolders": "always"
 }

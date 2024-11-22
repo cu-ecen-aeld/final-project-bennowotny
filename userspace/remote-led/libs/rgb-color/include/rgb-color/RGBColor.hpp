@@ -3,6 +3,7 @@
 
 #include <cstdint>
 #include <ostream>
+#include <vector>
 
 namespace rgb {
 
@@ -14,6 +15,7 @@ struct RGBColor {
 
 std::ostream &operator<<(std::ostream &stream, const RGBColor &color);
 std::string prettyPrint(const RGBColor &color);
+RGBColor fromBytes(const std::vector<std::byte> &bytes);
 
 } // namespace rgb
 

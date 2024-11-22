@@ -29,7 +29,7 @@ WORKDIR /home/devcontainer
 RUN rm -rf cmake-3.28.0
 
 # Add yocto tools
-RUN apt install -y gawk wget diffstat unzip texinfo gcc chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 python3-subunit zstd liblz4-tool file locales libacl1
+RUN apt install -y gawk wget diffstat unzip texinfo gcc chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 python3-subunit zstd liblz4-tool file locales libacl1 bear
 RUN locale-gen en_US.UTF-8
 
 RUN usermod -aG sudo devcontainer
