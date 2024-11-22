@@ -15,9 +15,10 @@ using namespace std::chrono_literals;
 
 namespace networking {
 
-Socket::Socket(PortNumber port, std::size_t pendingConnections, ConnectionCallback onConnection) : m_onConnection{std::move(onConnection)},
-                                                                                                   m_handleNewConnections{
-                                                                                                       [this](std::stop_token token) { handleNewConnections(token); }} {
+Socket::Socket(PortNumber port, std::size_t pendingConnections, ConnectionCallback onConnection)
+    : m_onConnection{std::move(onConnection)},
+      m_handleNewConnections{
+          [this](std::stop_token token) { handleNewConnections(token); }} {
 
   const auto socketFd = socket(AF_INET, SOCK_STREAM, 0);
   if (socketFd == -1) {
