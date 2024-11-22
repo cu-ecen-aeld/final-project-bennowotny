@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
   LockableWrapper<std::ofstream> rgbOutput{std::ofstream{RGB_COLOR_ENDPOINT, std::ios::binary}};
 
   static constexpr networking::PortNumber PORT_NUMBER{18658};
-  static constexpr std::size_t MAX_PENDING_CONNECTIONS{1}; // only 1 thing should set the LED at a time
+  static constexpr std::size_t MAX_PENDING_CONNECTIONS{20};
   networking::Socket socket{
       PORT_NUMBER,
       MAX_PENDING_CONNECTIONS,
