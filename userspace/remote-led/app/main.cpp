@@ -29,17 +29,14 @@ int main(int argc, char **argv) {
       [&](const std::stop_token & /* token */, networking::Connection &connection, std::promise<void> complete) {
         complete.set_value_at_thread_exit();
         const auto data{connection.getData(3)};
-        std::cout << "Heard connection!" << std::endl;
         if (data.size() != 3)
           return;
         const auto color{rgb::fromBytes(data)};
         (*rgbOutput.acquire()) << color << std::flush;
-        std::cout << rgb::prettyPrint(color) << std::flush;
       }};
 
   int terminatingSignal{0};
   sigwait(&blockedSignals, &terminatingSignal);
-  std::cout << "Program terminated with signal " << terminatingSignal << std::endl;
 
   return 0;
 }
