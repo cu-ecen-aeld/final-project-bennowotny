@@ -6,7 +6,7 @@
 template <typename T, typename Token>
 class StrongType {
 public:
-  explicit StrongType(T val) : m_val{std::move(val)} {}
+  explicit constexpr StrongType(T val) : m_val{std::move(val)} {}
 
   const T &get() const noexcept { return m_val; }
 

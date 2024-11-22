@@ -1,16 +1,45 @@
-#include "rgb-color/RGBColor.hpp"
+#include "networking/Connection.hpp"
+#include "util/LockableWrapper.hpp"
+#include <csignal>
+#include <networking/Socket.hpp>
+#include <ostream>
+#include <rgb-color/RGBColor.hpp>
 
+#include <csignal>
 #include <fstream>
 #include <iostream>
+#include <stop_token>
 
 int main(int argc, char **argv) {
 
-  static constexpr auto RGB_COLOR_ENDPOINT{"/tmp/rgb"};
-  std::ofstream rgbOutput{RGB_COLOR_ENDPOINT, std::ios::binary};
+  sigset_t blockedSignals;
+  sigemptyset(&blockedSignals);
+  sigaddset(&blockedSignals, SIGINT);
+  sigaddset(&blockedSignals, SIGTERM);
+  pthread_sigmask(SIG_BLOCK, &blockedSignals, nullptr);
 
-  rgb::RGBColor uut{.red{200}, .green{10}, .blue{250}};
-  std::cout << rgb::prettyPrint(uut) << std::endl;
-  rgbOutput << uut;
+  static constexpr auto RGB_COLOR_ENDPOINT{"/tmp/rgb"};
+  LockableWrapper<std::ofstream> rgbOutput{std::ofstream{RGB_COLOR_ENDPOINT, std::ios::binary}};
+
+  static constexpr networking::PortNumber PORT_NUMBER{18658};
+  static constexpr std::size_t MAX_PENDING_CONNECTIONS{1}; // only 1 thing should set the LED at a time
+  networking::Socket socket{
+      PORT_NUMBER,
+      MAX_PENDING_CONNECTIONS,
+      [&](const std::stop_token & /* token */, networking::Connection &connection, std::promise<void> complete) {
+        complete.set_value_at_thread_exit();
+        const auto data{connection.getData(3)};
+        std::cout << "Heard connection!" << std::endl;
+        if (data.size() != 3)
+          return;
+        const auto color{rgb::fromBytes(data)};
+        (*rgbOutput.acquire()) << color << std::flush;
+        std::cout << rgb::prettyPrint(color) << std::flush;
+      }};
+
+  int terminatingSignal{0};
+  sigwait(&blockedSignals, &terminatingSignal);
+  std::cout << "Program terminated with signal " << terminatingSignal << std::endl;
 
   return 0;
 }

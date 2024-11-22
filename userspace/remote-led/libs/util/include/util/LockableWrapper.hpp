@@ -24,6 +24,8 @@ private:
 template <typename T>
 class LockableWrapper {
 public:
+  LockableWrapper() noexcept = default;
+
   explicit LockableWrapper(T data) : m_data{std::move(data)} {}
 
   ~LockableWrapper() noexcept {
