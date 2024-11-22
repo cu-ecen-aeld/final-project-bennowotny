@@ -20,5 +20,6 @@
         "**/oe-logs/**",
         "**/oe-workdir/**",
         "**/source-date-epoch/**"
-    ]
+    ],
+    "git.openRepositoryInParentFolders": "always"
 }
