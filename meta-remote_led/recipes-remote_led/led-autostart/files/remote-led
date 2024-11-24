@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case "$1" in
+"start")
+  modprobe rgb-led redDutyCycle=200 greenDutyCycle=0 blueDutyCycle=255
+  ;;
+"stop")
+  modprobe -r rgb-led
+  ;;
+*)
+  echo "Usage: $0 [start|stop]"
+  ;;
+esac

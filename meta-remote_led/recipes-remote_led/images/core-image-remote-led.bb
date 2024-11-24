@@ -2,6 +2,7 @@ inherit core-image
 CORE_IMAGE_EXTRA_INSTALL += "remote-led"
 CORE_IMAGE_EXTRA_INSTALL += "rgb-led"
 CORE_IMAGE_EXTRA_INSTALL += "kernel-modules"
+CORE_IMAGE_EXTRA_INSTALL += "led-autostart"
 EXTRA_IMAGE_FEATURES += "ssh-server-dropbear"
 
 # avoid use of rpi-sdimg
