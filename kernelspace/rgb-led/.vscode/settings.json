@@ -21,5 +21,7 @@
         "**/oe-workdir/**",
         "**/source-date-epoch/**"
     ],
-    "git.openRepositoryInParentFolders": "always"
+    "git.openRepositoryInParentFolders": "always",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
 }
