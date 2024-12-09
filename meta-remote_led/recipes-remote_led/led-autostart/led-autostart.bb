@@ -11,7 +11,10 @@ INITSCRIPT_NAME:${PN} = "remote-led"
 
 FILES:${PN} += "${sysconfdir}/init.d/remote-led"
 
+RDEPENDS:${PN} += "rgb-led"
+RDEPENDS:${PN} += "remote-led"
+
 do_install:append(){
   install -d ${D}${sysconfdir}/init.d
-	install -m 0755 ${WORKDIR}/remote-led ${D}${sysconfdir}/init.d
+	install -m 0755 ${WORKDIR}/remote-led ${D}${sysconfdir}/init.d/
 }

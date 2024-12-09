@@ -9,8 +9,13 @@
 #include <fstream>
 #include <iostream>
 #include <stop_token>
+#include <unistd.h>
 
 int main(int argc, char **argv) {
+
+  if (daemon(0, 0)) {
+    std::cerr << "ERR: Could not daemonize" << std::endl;
+  }
 
   sigset_t blockedSignals;
   sigemptyset(&blockedSignals);
