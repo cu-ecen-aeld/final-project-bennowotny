@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
   sigaddset(&blockedSignals, SIGTERM);
   pthread_sigmask(SIG_BLOCK, &blockedSignals, nullptr);
 
-  static constexpr auto RGB_COLOR_ENDPOINT{"/tmp/rgb"};
+  static constexpr auto RGB_COLOR_ENDPOINT{"/dev/rgb-led"};
   LockableWrapper<std::ofstream> rgbOutput{std::ofstream{RGB_COLOR_ENDPOINT, std::ios::binary}};
 
   static constexpr networking::PortNumber PORT_NUMBER{18658};

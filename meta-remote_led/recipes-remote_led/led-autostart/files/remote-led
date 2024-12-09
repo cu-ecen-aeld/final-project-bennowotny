@@ -1,11 +1,38 @@
 #!/bin/sh
 
+load_module() {
+  module_name=$1
+  # remove first parameter to get the rest of the files specified
+  shift
+  create_device="$*"
+  modprobe "$module_name" || exit 1
+  if [ "$create_device" ]; then
+    major_number=$(awk '$2=="'"$module_name"'" {print $1}' </proc/devices)
+    for device in $create_device; do
+      mknod "$device" c "$major_number" 0
+    done
+  fi
+}
+
+unload_module() {
+  module_name=$1
+  # remove first parameter to get the rest of the files specified
+  shift
+  rm_device="$*"
+  if [ "$rm_device" ]; then
+    for device in $create_device; do
+      rm -rf "$device"
+    done
+  fi
+  modprobe -r "$module_name" || exit 1
+}
+
 case "$1" in
 "start")
-  modprobe rgb-led redDutyCycle=200 greenDutyCycle=0 blueDutyCycle=255
+  load_module rgb-led /dev/rgb-led
   ;;
 "stop")
-  modprobe -r rgb-led
+  unload_module rgb-led /dev/rgb-led
   ;;
 *)
   echo "Usage: $0 [start|stop]"
