@@ -35,11 +35,12 @@ static atomic_t colorBufferInUse = ATOMIC_INIT(PING);
 DEFINE_MUTEX(changeColorMutex);
 
 static int update_color(color_t newColor) {
+  if (mutex_lock_interruptible(&changeColorMutex) != 0)
+    return EINTR;
+
   const int bufferUsed = atomic_read(&colorBufferInUse);
   if (bufferUsed != PING && bufferUsed != PONG)
     return EINVAL;
-  if (mutex_lock_interruptible(&changeColorMutex) != 0)
-    return EINTR;
 
   if (bufferUsed == PING) {
     // Update pong and swap
