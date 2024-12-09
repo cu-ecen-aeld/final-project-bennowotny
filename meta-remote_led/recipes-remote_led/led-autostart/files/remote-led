@@ -30,8 +30,10 @@ unload_module() {
 case "$1" in
 "start")
   load_module rgb-led /dev/rgb-led
+  start-stop-daemon -S -n remote-led -a /usr/bin/remote-led
   ;;
 "stop")
+  start-stop-daemon -K -n remote-led
   unload_module rgb-led /dev/rgb-led
   ;;
 *)
